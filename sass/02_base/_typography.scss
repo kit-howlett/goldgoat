@@ -1,0 +1,129 @@
+.heading {
+  font-family: $heading-font-family;
+  font-size: 45px;
+  font-weight: $heading-font-weight;
+  color: $heading-color;
+
+  @include medium {
+    font-size: 30px;
+  }
+
+  // Weight Variations
+  &--bold {
+    @extend .heading;
+    font-weight: 700;
+  }
+
+  // Colour Variations
+  &--secondary-color {
+    color: $secondary-color;
+  }
+
+  &--accent-color {
+    color: $accent-color;
+  }
+
+  // Size Variations
+  &--s1 {
+    font-size: 45px;
+
+    @include medium {
+      font-size: 30px;
+    }
+  }
+
+  &--s2 {
+    font-size: 36px;
+
+    @include medium {
+      font-size: 32px;
+    }
+  }
+
+  &--s3 {
+    font-size: 32px;
+
+    @include medium {
+      font-size: 28px;
+    }
+  }
+
+  &--s4 {
+    font-size: 28px;
+
+    @include medium {
+      font-size: 24px;
+    }
+  }
+
+  &--s5 {
+    font-size: 20px;
+
+    @include medium {
+      font-size: 18px;
+    }
+  }
+
+  &--s6 {
+    font-size: 16px;
+  }
+}
+
+.subheading {
+  font-family: $subheading-font-family;
+  font-size: $subheading-regular-font-size;
+  font-weight: $subheading-font-weight;
+  color: $subheading-color;
+  text-transform: uppercase;
+
+  @include medium {
+    font-size: $subheading-mobile-font-size;
+  }
+
+  &--secondary-color {
+    color: $secondary-color;
+  }
+
+  &--accent-color {
+    color: $accent-color;
+  }
+}
+
+.para {
+  font-family: $primary-font-family;
+  font-size: $primary-regular-font-size;
+  font-weight: $primary-font-weight;
+  color: $primary-color;
+
+  @include medium {
+    font-size: $primary-mobile-font-size;
+  }
+
+  &--large {
+    @extend .para;
+    font-size: 1.5rem;
+
+    @include medium {
+      font-size: $primary-mobile-font-size;
+    }
+  }
+
+  &--semi-bold {
+    @extend .para;
+    font-weight: 600;
+  }
+
+  &--bold {
+    @extend .para;
+    font-weight: 700;
+  }
+
+  &--secondary-color {
+    color: $secondary-color;
+  }
+
+  &--accent-color {
+    color: $accent-color;
+  }
+}
+

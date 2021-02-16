@@ -1,0 +1,81 @@
+// Our Testimonials Section
+.c-section--testimonials {
+
+  .heading,
+  .subheading,
+  .c-section__btn-container,
+  .c-section__flex-row {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .c-section__flex-row {
+    justify-content: space-around;
+
+    @include x-large {
+      justify-content: space-between;
+    }
+
+    @include large {
+      flex-wrap: wrap;
+    }
+  }
+
+  .heading {
+    width: 60%;
+
+    @include x-large {
+      width: 75%;
+    }
+
+    @include large {
+      width: 85%;
+    }
+
+    @include medium {
+      width: 90%;
+    }
+
+    @include small {
+      width: 100%;
+    }
+  }
+
+  .c-section__btn-container {
+    margin-top: 2.5rem; 
+    margin-bottom: 3.75rem; 
+  }
+
+  .testimonial {
+    width: 25%;
+
+    @include x-large {
+      width: 28%;
+    }
+
+    @include large {
+      width: 45%;
+
+      &:nth-child(3) {
+        margin: 3.125rem auto 0;
+      }
+    }
+
+    @include medium {
+      width: 75%;
+      margin-left: auto;
+      margin-right: auto;
+
+      &:nth-child(2),
+      &:nth-child(3) {
+        margin-top: 3.125rem;
+      }
+    }
+
+    @include small {
+      width: 85%;
+    }
+  }
+}

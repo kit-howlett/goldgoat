@@ -1,0 +1,55 @@
+<div class="a-section a-section--section-8">
+
+  <div class="flex a-section__row">
+    <div class="a-section__col a-section__col--1">
+      
+      <h3 class="subheading a-section__subtitle">{{ section.settings.subheading }}</h3>
+      <h2 class="heading heading--s4 a-section__title">{{ section.settings.heading }}</h2>
+      {% if section.settings.paragraph != blank %}
+        <div class="para a-section__primary-para">
+          {{ section.settings.paragraph }}
+        </div>
+      {% endif %}
+    </div>
+    <div class="a-section__col a-section__col--2">
+      <img src="{{ section.settings.main-image | img_url: '1200x675', scale: 2, crop: 'center', format: 'pjpg' }}" class="a-section__hero-image" alt="{{ section.settings.main-image.alt }}">
+    </div>
+  </div>
+
+</div>
+
+{% schema %}
+{
+  "name": "additional-section-8",
+  "tag": "section",
+  "settings": [
+    {
+      "id": "subheading",
+      "type": "text",
+      "label": "Subheading Text"
+    },
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Heading Text"
+    },
+    {
+      "id": "paragraph",
+      "type": "richtext",
+      "label": "Paragraph Text"
+    },
+    {
+      "id": "main-image",
+      "type": "image_picker",
+      "label": "Main Image",
+      "info": "Aspect ratio of 16:9 recommended. Minimum width 2400px."
+    }
+  ],
+  "presets": [
+    {
+      "category": "Additional Sections - Gold Goat",
+      "name": "Additional Section - 8"
+    }
+  ]
+}
+{% endschema %}

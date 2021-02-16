@@ -1,0 +1,60 @@
+<div class="a-section a-section--section-4">
+
+  <div class="a-section__row">
+    <img src="{{ section.settings.main-image | img_url: '1200x675', scale: 2, crop: 'center', format: 'pjpg' }}" class="a-section__hero-image" alt="{{ section.settings.main-image.alt }}">
+  </div>
+
+  <div class="a-section__row">
+    <div class="para a-section__primary-para">
+      {{ page.content }}
+    </div>
+  </div>
+
+  {% if section.blocks.size > 0 %}
+    <div class="a-section__row story-board">
+      <div class="flex story-board__container">
+        {% for block in section.blocks %}
+          <img src="{{ block.settings.storyboard-image | img_url: '300x300', crop: 'center', scale: '2'}}" alt="{{ block.settings.storyboard-image.alt }}" class="story-board__image">
+        {% endfor %}  
+      </div>
+    </div>
+  {% endif %}
+ 
+
+</div>
+
+{% schema %}
+{
+  "name": "additional-section-4",
+  "tag": "section",
+  "settings": [
+    {
+      "id": "main-image",
+      "type": "image_picker",
+      "label": "Main Image",
+      "info": "Aspect ratio of 16:9 recommended. Minimum width 2400px."
+    }
+  ],
+  "blocks": [
+  {
+    "type": "storyboard",
+    "name": "Image",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "storyboard-image",
+        "label": "Story Board Image",
+        "info": "Aspect ratio of 1:1 recommended. Minimum width 600px. "
+      }
+    ]
+  }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "category": "Additional Sections - Gold Goat",
+      "name": "Additional Section - 4"
+    }
+  ]
+}
+{% endschema %}

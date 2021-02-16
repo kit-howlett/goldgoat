@@ -1,0 +1,157 @@
+<div class="a-section a-section--section-9">
+
+  <h3 class="subheading text-center a-section__subtitle">{{ section.settings.subheading }}</h3>
+  <h2 class="heading text-center heading--s4 a-section__title">{{ section.settings.heading }}</h2>
+  {% if section.settings.paragraph != blank %}
+    <div class="para text-center a-section__primary-para">
+      {{ section.settings.paragraph }}
+    </div>
+  {% endif %}
+  <!-- FORM -->
+  <div class="form contact-form">
+    {%- assign formId = 'ContactForm' -%}
+    {% form 'contact', id: formId %}
+      {% include 'form-status', form: form, form_id: formId %}
+
+      <div class="form__input-group">
+        <label for="{{ formId }}-name">{{ 'contact.form.name' | t }}</label>
+        <input type="text" id="{{ formId }}-name" class="form__input" name="contact[{{ 'contact.form.name' | t }}]" value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+      </div>
+
+      <div class="form__input-group">
+        <label for="{{ formId }}-email">{{ 'contact.form.email' | t }} <span aria-hidden="true">*</span></label>
+        <input
+          type="email"
+          id="{{ formId }}-email"
+          class="form__input"
+          name="contact[email]"
+          autocorrect="off"
+          autocapitalize="off"
+          value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+          aria-required="true"
+          {%- if form.errors contains 'email' -%}
+            class="input--error"
+            aria-invalid="true"
+            aria-describedby="{{ formId }}-email-error"
+          {%- endif -%}
+          >
+        {%- if form.errors contains 'email' -%}
+          <span id="{{ formId}}-email-error" class="input-error-message">
+            <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+            {% include 'icon-error' %}
+            <span>{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
+          </span>
+        {%- endif -%}
+      </div>
+      
+      <div class="form__input-group">
+        <label for="{{ formId }}-phone">{{ 'contact.form.phone' | t }}</label>
+        <input type="tel" id="{{ formId }}-phone" class="form__input" name="contact[{{ 'contact.form.phone' | t }}]" pattern="[0-9\-]*" value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}">
+      </div>
+
+      <div class="form__input-group">
+        <label for="{{ formId }}-message">{{ 'contact.form.message' | t }}</label>
+        <textarea rows="10" id="{{ formId }}-message" class="form__input" name="contact[{{ 'contact.form.message' | t }}]">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+      </div>
+
+      <input type="submit" class="btn--primary" value="{{ 'contact.form.submit' | t }}">
+    {% endform %}
+  </div>
+
+  {% if section.blocks.size > 0 %}
+    <div class="flex a-section__row partner">
+      {% for block in section.blocks %}
+        <div class="flex subscription-list partner__container">
+          <div class="flex partner__col partner__col--1">
+            <p class="subheading partner__shop-type">{{ block.settings.shoptype }}</p>
+            <h4 class="heading heading--s5 partner__shop-name">{{ block.settings.shopname }}</h4>
+            <div class="para partner__shop-description">
+              {{ block.settings.shopdescription }}
+            </div>
+            <div class="flex partner__shop-contact">
+              <i class="fas fa-laptop"></i>
+              <p class="para"><a href="{{ block.settings.shopwebsite }}">{{ block.settings.shopwebsite }}</a></p>
+            </div>
+            <div class="flex partner__shop-contact">
+              <i class="fas fa-map-marked-alt"></i>
+              <p class="para">{{ block.settings.shopaddress }}</p>
+            </div>
+          </div>
+          <div class="partner__col partner__col--2">
+            <img src="{{ block.settings.shopimage | img_url: '1200x675', scale: 2, crop: 'center', format: 'pjpg' }}" class="a-section__hero-image" alt="{{ block.settings.shopimage.alt }}">
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+</div>
+
+{% schema %}
+{
+  "name": "additional-section-9",
+  "tag": "section",
+  "settings": [
+    {
+      "id": "subheading",
+      "type": "text",
+      "label": "Subheading Text"
+    },
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Heading Text"
+    },
+    {
+      "id": "paragraph",
+      "type": "richtext",
+      "label": "Paragraph Text"
+    }
+  ],
+  "blocks": [
+  {
+    "type": "block",
+    "name": "Block",
+    "settings": [
+      {
+        "id": "shoptype",
+        "type": "text",
+        "label": "Shop Type"
+      },
+      {
+        "id": "shopname",
+        "type": "text",
+        "label": "Shop Name"
+      },
+      {
+        "id": "shopdescription",
+        "type": "richtext",
+        "label": "Shop Description"
+      },
+      {
+        "id": "shopwebsite",
+        "type": "url",
+        "label": "Shop Website"
+      },
+      {
+        "id": "shopaddress",
+        "type": "text",
+        "label": "Shop Address"
+      },
+      {
+        "id": "shopimage",
+        "type": "image_picker",
+        "label": "Main Image",
+        "info": "Aspect ratio of 16:9 recommended. Minimum width 2400px."
+      }
+    ]
+  }
+  ],
+  "presets": [
+    {
+      "category": "Additional Sections - Gold Goat",
+      "name": "Additional Section - 9"
+    }
+  ]
+}
+{% endschema %}

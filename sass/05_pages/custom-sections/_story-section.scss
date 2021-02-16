@@ -1,0 +1,109 @@
+// Our Story Section
+.c-section--our-story {
+
+  .c-section__flex-row {
+
+    &--col-1 {
+      
+      @include large {
+        flex-direction: column;
+      }
+    }
+
+    &--col-2 {
+      margin-top: 3.75rem;
+
+      @include large {
+        flex-wrap: wrap;
+      }
+    }
+    
+  }
+
+  .c-section__story-content {
+    width: 50%;
+
+    &--col-1 {
+      @include x-large {
+        width: 55%;
+      }
+  
+      @include large {
+        width: 100%;
+      }
+    }
+
+    &--col-2 {
+
+      & > p {
+        padding-right: 20%;
+
+        @include x-large {
+          padding: 0;
+        }
+
+        @include large {
+          width: 100%;
+          margin-left: auto;
+          margin-right: auto;
+          text-align: center;
+        }
+
+        @include medium {
+          flex-wrap: wrap;
+        }
+
+        &:first-of-type {
+  
+          @include large {
+            margin-top: 1.875em;
+          }
+        }
+      }
+
+      @include x-large {
+        width: 45%;
+      }
+  
+      @include large {
+        width: 100%;
+      }
+    }
+  }
+  
+  .subheading {
+    
+    @include large {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+  }
+
+  .heading {
+    width: 80%;
+
+    @include x-large {
+      width: 85%;
+    }
+
+    @include large {
+      width: 100%;
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+
+  .c-section__story-board {
+    align-self: center;
+    width: 22.5%;
+    max-width: 250px;
+    border-radius: 4px;
+
+    @include medium {
+      width: 46%;
+      max-width: 300px;
+      margin: 2%;
+    }
+  }
+}

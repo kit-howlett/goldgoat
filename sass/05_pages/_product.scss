@@ -1,0 +1,122 @@
+.product-single {
+
+  &__media {
+
+    img {
+      border-radius: 4px;
+    }
+  }
+
+  &__media-wrapper {
+    margin: 0;
+  }
+
+  &__title {
+    margin: 0;
+    text-align: left;
+  }
+
+  &__description {
+    margin-top: 0;
+  }
+
+  &__thumbnail {
+    border: none;
+  }
+
+  &__thumbnail-image {
+    border-radius: 4px;
+  }
+}
+
+.product-form {
+
+  &__input {
+    color: $primary-color;
+    border: 2px solid $primary-color;
+    border-radius: 4px;
+  }
+}
+
+.price {
+
+  &--listing {
+    align-items: center;
+    color: red;
+  }
+
+  &__vendor {
+    margin: 0.33em 0 0;
+  }
+
+  &__pricing-group {
+    margin: 1em 0 0;
+  }
+}
+
+.product {
+
+  &__policies {
+    margin: 0;
+  }
+}
+
+.product-card {
+
+  &:hover {
+
+    .product-card__title {
+      border-bottom: none;
+    }
+  }
+
+  img {
+    border-radius: 4px;
+  }
+
+  &__title {
+    display: block;
+    text-align: center;
+    border-bottom: none;
+  }
+}
+
+
+
+
+
+
+
+
+
+// Button
+
+.shopify-payment-button .shopify-payment-button__button--unbranded {
+  font-family: $button-font-family;
+  font-size: $button-font-size;
+  font-weight: $button-font-weight;
+  display: inline-block;
+  padding: .5625em 2.25em;
+  text-transform: none;
+  letter-spacing: $letter-spacing;
+  border-radius: 4px !important;
+  text-align: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: $btn-primary-color;
+  color: $btn-secondary-color;
+  border: 2px solid transparent;
+
+  &:hover,
+  &:not([disabled]):hover,
+  &:focus {
+    background: transparent !important;
+    color: $btn-primary-color;
+    border: 2px solid $btn-primary-color;
+  }
+}
+
+.shopify-payment-button .shopify-payment-button__button--branded {
+  border-radius: 4px !important;
+}

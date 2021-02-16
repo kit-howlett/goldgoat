@@ -1,0 +1,18 @@
+.form--footer {
+
+  form {
+    width: 100%;
+
+    .form__input {
+      border-radius: 4px 0 0 4px;
+    }
+
+    .btn--primary {
+      border-radius: 0 4px 4px 0;
+
+      &:hover {
+        border-left: transparent;
+      }
+    }
+  }
+}

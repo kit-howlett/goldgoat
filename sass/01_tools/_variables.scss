@@ -1,0 +1,39 @@
+// Colours
+$heading-color: #{'"{{ settings.header_color }}"'};
+$subheading-color: #{'"{{ settings.subheader_color }}"'};
+$primary-color: #{'"{{ settings.primary_color }}"'};
+$secondary-color: #{'"{{ settings.secondary_color }}"'};
+$accent-color: #{'"{{ settings.accent_color }}"'};
+$btn-primary-color: #{'"{{ settings.btn_primary-colour }}"'};
+$btn-secondary-color: #{'"{{ settings.btn_secondary-colour }}"'};
+
+// Typography 
+$heading-regular-font-size: #{'"{{ settings.header_font-size }}"'}px;
+$heading-mobile-font-size: #{'"{{ settings.header_mobile_font-size }}"'}px;
+$heading-font-weight: #{'"{{ settings.header_font.weight }}"'};
+$heading-font-family: '#{'"{{ settings.header_font.family }}"'}', sans-serif;
+
+$subheading-regular-font-size: #{'"{{ settings.subheader_font-size }}"'}px;
+$subheading-mobile-font-size: #{'"{{ settings.subheader_mobile_font-size }}"'}px;
+$subheading-font-weight: #{'"{{ settings.subheader_font.weight }}"'};
+$subheading-font-family: '#{'"{{ settings.subheader_font.family }}"'}', sans-serif;
+
+$primary-regular-font-size: #{'"{{ settings.default_font-size }}"'}px;
+$primary-mobile-font-size: #{'"{{ settings.default_mobile_font-size }}"'}px;
+$primary-font-weight: #{'"{{ settings.default_font.weight }}"'};
+$primary-font-family: '#{'"{{ settings.default_font.family }}"'}', sans-serif;
+
+$button-font-size: #{'"{{ settings.btn_font-size }}"'}px;
+$button-font-weight: #{'"{{ settings.btn_font.weight }}"'};
+$button-font-family: '#{'"{{ settings.btn_font.family }}"'}', sans-serif;
+
+$letter-spacing: -0.05em;
+$line-height: 1.5;
+
+// Breakpoints
+$max-width-header: 1640px;
+$max-width: 1364px;
+$breakpoint-xlarge: 1300px;
+$breakpoint-large: 992px;
+$breakpoint-medium: 749px;
+$breakpoint-small: 576px;

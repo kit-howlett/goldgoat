@@ -1,0 +1,106 @@
+<div class="c-section c-section--subscribe page-container">
+  <!-- TEXT CONTENT -->
+  <h3 class="subheading">{{ section.settings.subheading }}</h3>
+  <h2 class="heading">{{ section.settings.heading }}</h2>
+  {% if section.settings.paragraph != blank %}
+    <p class="para">{{ section.settings.paragraph }}</p>
+  {% endif %}
+  <!-- CTA BUTTON -->
+  <div class="c-section__btn-container">
+    <a href="{{ section.settings.btn-link }}" class="btn--primary">{{ section.settings.btn-text }}</a>
+  </div>
+  <!-- MAIN IMAGE -->
+  <img src="{{ section.settings.main-image | img_url: '1200x675', scale: 2, crop: 'center', format: 'pjpg' }}" class="c-section__main-image" alt="{{ section.settings.main-image.alt }}">
+  <!-- SUBSCRIPTION BENEFITS ICONS -->
+  {% if section.blocks.size > 0 %}
+    <div class="c-section__flex-row">
+      {% for block in section.blocks %}
+        <div class="c-section__subscription-benefits">
+          <img src="{{ block.settings.icon | img_url: '80x80'}}" class="c-section__subscription-icon" alt="{{ section.settings.icon.alt }}">
+          <p class="para--semi-bold">{{ block.settings.icon-caption }}</p>
+        </div>
+      {% endfor %}  
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "subscriptions-section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Details"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Section Name",
+      "default": "Our Subscriptions"
+    },
+    {
+      "type": "header",
+      "content": "Section Content"
+    },
+    {
+      "id": "subheading",
+      "type": "text",
+      "label": "Subheading Text"
+    },
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Heading Text"
+    },
+    {
+      "id": "paragraph",
+      "type": "textarea",
+      "label": "Paragraph Text"
+    },
+    {
+      "id": "btn-text",
+      "type": "text",
+      "label": "Button Text",
+      "default": "Learn More"
+    },
+    {
+      "id": "btn-link",
+      "type": "url",
+      "label": "Button Link"
+    },
+    {
+      "id": "main-image",
+      "type": "image_picker",
+      "label": "Main Image",
+      "info": "Aspect ratio of 16:9 recommended. Minimum width 2400px."
+    }
+  ],
+  "blocks": [
+  {
+    "type": "benefit",
+    "name": "Benefit",
+    "settings": [
+      {
+        "id": "icon",
+        "type": "image_picker",
+        "label": "Icon",
+        "info": "Aspect ratio of 1:1 recommended. Minimum width 80px."
+      },
+      {
+        "id": "icon-caption",
+        "type": "textarea",
+        "label": "Caption"
+      }
+    ]
+  }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "category": "Custom - Gold Goat",
+      "name": "Custom - Our Subscriptions"
+    }
+  ]
+}
+{% endschema %}

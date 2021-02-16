@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+}
+
+body, input, textarea, button, select, figure, figcaption, 
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, 
+p {
+  font-family: $primary-font-family;
+  font-size: $primary-regular-font-size;
+  font-weight: $primary-font-weight;
+  color: $primary-color;
+  text-transform: none;
+  letter-spacing: $letter-spacing;
+  margin: 0;
+
+  @include medium {
+    font-size: $primary-mobile-font-size;
+  }
+}
+
+a:not([disabled]):hover, a:focus {
+  color: $accent-color;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+.main-content {
+  padding: 0;
+}
+
+.main-logo {
+  max-width: 200px;
+}

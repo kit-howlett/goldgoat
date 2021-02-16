@@ -1,0 +1,17 @@
+{% assign heading_font = settings.header_font %}
+{{ heading_font | font_face }}
+
+{% assign subheading_font = settings.subheader_font %}
+{{ subheading_font | font_face }}
+
+{% assign default_font = settings.default_font %}
+{{ default_font | font_face }}
+
+{% assign button_font = settings.btn_font %}
+{{ button_font | font_face }}
+
+{% assign semi_bold = settings.default_font | font_modify: 'weight', '500' %}
+{{ semi_bold | font_face }}
+
+{% assign bold = settings.default_font | font_modify: 'weight', '700' %}
+{{ bold | font_face }}

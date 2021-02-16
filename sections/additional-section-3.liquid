@@ -1,0 +1,72 @@
+<div class="a-section a-section--section-3">
+
+  <h3 class="subheading text-center a-section__subtitle">{{ section.settings.subheading }}</h3>
+  <h2 class="heading heading--s4 text-center a-section__title">{{ section.settings.heading }}</h2>
+  {% if section.settings.paragraph != blank %}
+    <p class="para text-center a-section__primary-para">{{ section.settings.paragraph }}</p>
+  {% endif %}
+
+  {% if section.blocks.size > 0 %}
+    <div class="faq">
+      {% for block in section.blocks %}
+        <div class="flex faq__container">
+          <div class="faq__icon-wrapper">
+            <i class="far fa-lg fa-question-circle"></i>
+          </div>
+          <div class="faq__details-wrapper">
+            <h6 class="heading heading--s6 faq__question">{{ block.settings.title }}</h6>
+            <p class="para faq__answer">{{ block.settings.description }}</p>
+          </div>
+        </div>
+      {% endfor %}  
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "additional-section-3",
+  "tag": "section",
+  "settings": [
+    {
+      "id": "subheading",
+      "type": "text",
+      "label": "Subheading Text"
+    },
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Heading Text"
+    },
+    {
+      "id": "paragraph",
+      "type": "textarea",
+      "label": "Paragraph Text"
+    }
+  ],
+  "blocks": [
+  {
+    "type": "block",
+    "name": "Block",
+    "settings": [
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Block Title"
+      },
+      {
+        "id": "description",
+        "type": "textarea",
+        "label": "Block Description"
+      }
+    ]
+  }
+  ],
+  "presets": [
+    {
+      "category": "Additional Sections - Gold Goat",
+      "name": "Additional Section - 3"
+    }
+  ]
+}
+{% endschema %}

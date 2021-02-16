@@ -1,0 +1,145 @@
+<div class="page-container page-margin c-page--login">
+
+      <div class="form-success hide text-center" id="ResetSuccess" tabindex="-1">
+        {{ 'customer.recover_password.success' | t }}
+      </div>
+
+      <!--------- Login FORM  --------->
+      <div id="CustomerLoginForm" class="form form--login">
+        <!-- FORM Heading  -->
+        <h1 id="LoginHeading" class="heading heading--s2 text-center c-page__heading">{{ 'customer.login.title' | t }}</h1>
+
+        <!-- FORM Start  -->
+        {% form 'customer_login', novalidate: 'novalidate' %}
+          {%- if form.errors -%}
+            <div class="form-message form-message--error">
+              <h2 class="h3 form-message__title " tabindex="-1" data-form-status>{{ 'contact.form.error_heading' | t }}</h2>
+              {{ form.errors | default_errors }}
+            </div>
+          {%- endif -%}
+
+          <!-- FORM Input Group  -->
+          <div class="form__input-group">
+            <label for="CustomerEmail" class="form__label para--semi-bold">{{ 'customer.login.email' | t }}</label>
+            <input
+              class="form__input"
+              type="email"
+              name="customer[email]"
+              id="CustomerEmail"
+              autocomplete="email"
+              autocorrect="off"
+              autocapitalize="off"
+              {%- if form.errors contains 'form' -%}
+                class="input--error"
+                aria-invalid="true"
+              {%- endif -%}>
+          </div>
+
+          {% if form.password_needed %}
+          <!-- FORM Input Group  -->
+          <div class="form__input-group form__input-group--no-margin">
+            <label for="CustomerPassword" class="form__label para--semi-bold">{{ 'customer.login.password' | t }}</label>
+            <input
+              class="form__input"
+              type="password"
+              value=""
+              name="customer[password]"
+              id="CustomerPassword"
+              {%- if form.errors contains 'form' -%}
+                class="input--error"
+                aria-invalid="true"
+              {%- endif -%}>
+          {% endif %}
+          </div>
+
+          <!-- FORM Submit & Links -->
+          <div class="form__footer">
+            {% if form.password_needed %}
+              <p class="para"><a href="#recover" id="RecoverPassword">{{ 'customer.login.forgot_password' | t }}</a></p>
+            {% endif %}
+            <input type="submit" class="btn--primary" value="{{ 'customer.login.sign_in' | t }}">
+            <p class="para">
+              {{ 'layout.customer.create_account' | t | customer_register_link }}
+            </p>
+          </div>
+
+        {% endform %}
+        <!-- FORM End  -->
+      </div>
+
+
+
+      <!--------- Login FORM  --------->
+      <div id="RecoverPasswordForm" class="hide form form--recover">
+
+        <!-- FORM Heading  -->
+        <h2 id="RecoverHeading" class="heading heading--s2 text-center c-page__heading">{{ 'customer.recover_password.title' | t }}</h2>
+        <!-- FORM Para  -->
+        <p class="form__para">{{ 'customer.recover_password.subtext' | t }}</p>
+        
+        <!-- FORM Start  -->
+        {% form 'recover_customer_password' %}
+
+          {% comment %}
+            Add a hidden span to indicate the form was submitted succesfully.
+          {% endcomment %}
+          {% if form.posted_successfully? %}
+            <span class="hide reset-password-success"></span>
+          {% endif %}
+
+          <!-- FORM Input Group  -->
+          <div class="form__input-group">
+          <label for="RecoverEmail" class="form__label para--semi-bold">{{ 'customer.recover_password.email' | t }}</label>
+          <input
+            class="form__input"
+            type="email"
+            value=""
+            name="email"
+            id="RecoverEmail"
+            class="input-full{% if form.errors %} input--error{% endif %}"
+            autocorrect="off"
+            autocapitalize="off"
+            {% if form.errors %}
+              aria-invalid="true"
+              aria-describedby="RecoverEmail-email-error"
+            {%- endif -%}>
+          </div>
+
+          {%- if form.errors -%}
+            <span id="RecoverEmail-email-error" class="input-error-message">
+              <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+              {% include 'icon-error' %}
+              <span>{{ form.errors.messages['form'] }}</span>
+            </span>
+          {%- endif -%}
+
+          <!-- FORM Submit & Links -->
+          <div class="form__footer">
+            <p>
+              <input type="submit" class="btn--primary" value="{{ 'customer.recover_password.submit' | t }}">
+            </p>
+            <a href="#LoginHeading" id="HideRecoverPasswordLink" class="para">{{ 'customer.recover_password.cancel' | t }}</a>
+          </div>
+        {% endform %}
+        <!-- FORM End  -->
+
+      </div>
+
+      {% comment %}
+        If accounts are set as optional, the following will be shown as an option
+        during checkout, not on the default /login page.
+      {% endcomment %}
+      {% if shop.checkout.guest_login %}
+        <div class="text-center">
+          <hr class="hr--invisible">
+          <h2>{{ 'customer.login.guest_title' | t }}</h2>
+
+          {% form 'guest_login' %}
+            <input type="submit" class="btn" value="{{ 'customer.login.guest_continue' | t }}">
+          {% endform %}
+        </div>
+      {% endif %}
+    
+
+  
+</div>

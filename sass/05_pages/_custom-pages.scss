@@ -1,0 +1,43 @@
+.c-page {
+  margin-top: 50px;
+
+  &--subscriptions,
+  &--story,
+  &--discover,
+  &--contact-us,
+  &--blend {
+    overflow: visible;
+
+    section.shopify-section {
+      margin-bottom: 100px;
+    }
+  }
+
+  &--contact-us {
+
+    form {
+      width: 100%;
+    }
+  }
+
+  &--product {
+
+    @include small {
+      margin-top: 0;
+    }
+  }
+
+  &__heading {
+    margin-bottom: 50px;
+  }
+}
+
+.c-page--account,
+.c-page--addresses,
+.c-page--login, 
+.c-page--register {
+
+  .heading--page-title {
+    margin-bottom: .5em;
+  }
+}

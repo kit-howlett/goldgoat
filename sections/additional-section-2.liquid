@@ -1,0 +1,79 @@
+<div class="a-section a-section--section-2">
+
+  <h3 class="subheading text-center a-section__subtitle">{{ section.settings.subheading }}</h3>
+  <h2 class="heading heading--s4 text-center a-section__title">{{ section.settings.heading }}</h2>
+  {% if section.settings.paragraph != blank %}
+    <p class="para text-center a-section__primary-para">{{ section.settings.paragraph }}</p>
+  {% endif %}
+
+  {% if section.blocks.size > 0 %}
+    <div class="flex benefits">
+      {% for block in section.blocks %}
+        <div class=" flex benefits__container">
+          <div class="benefits__icon-wrapper">
+            <img src="{{ block.settings.icon | img_url: '80x80'}}" class="benefits__icon" alt="{{ section.settings.icon.alt }}">
+          </div>
+          <div class="benefits__details-wrapper">
+            <h6 class="heading heading--s6 benefits__title">{{ block.settings.title }}</h6>
+            <p class="para benefits__description">{{ block.settings.description }}</p>
+          </div>
+        </div>
+      {% endfor %}  
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "additional-section-2",
+  "tag": "section",
+  "settings": [
+    {
+      "id": "subheading",
+      "type": "text",
+      "label": "Subheading Text"
+    },
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Heading Text"
+    },
+    {
+      "id": "paragraph",
+      "type": "textarea",
+      "label": "Paragraph Text"
+    }
+  ],
+  "blocks": [
+  {
+    "type": "block",
+    "name": "Block",
+    "settings": [
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Block Title"
+      },
+      {
+        "id": "description",
+        "type": "textarea",
+        "label": "Block Description"
+      },
+      {
+        "id": "icon",
+        "type": "image_picker",
+        "label": "Block Icon",
+        "info": "Aspect ratio of 1:1 recommended. Minimum width 80px."
+      }
+    ]
+  }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "category": "Additional Sections - Gold Goat",
+      "name": "Additional Section - 2"
+    }
+  ]
+}
+{% endschema %}

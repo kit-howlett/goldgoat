@@ -1,0 +1,42 @@
+.c-section {
+  margin-bottom: 100px;
+
+  @include small {
+    margin-bottom: 50px;
+  }
+
+  .heading {
+    
+    & + .para {
+      margin-top: 1.875em;
+    }
+
+    & + .c-section__btn-container {
+      margin-top: 2.5em;
+    }
+  }
+
+  .subheading {
+    margin-bottom: 1em;
+  }
+
+  &__main-image {
+    border-radius: 4px;
+  }
+
+  &__flex-row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .para {
+
+    & + .c-section__btn-container {
+      margin-top: 2.5em;
+    }
+    
+    p + p {
+      margin-top: 1.5625em;
+    }
+  }
+}

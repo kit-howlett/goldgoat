@@ -1,0 +1,111 @@
+<div class="c-section c-section--shop page-container">
+  <!-------------------- ROW 1 - SHOP INTRO -------------------->
+  <div class="c-section__shop-content">
+    <!-- HEADING CONTENT -->
+    <h3 class="subheading">{{ section.settings.subheading }}</h3>
+    <h2 class="heading">{{ section.settings.heading }}</h2>
+    <!-- CTA BUTTON -->
+    <div class="c-section__btn-container">
+      <a href="{{ section.settings.btn-link }}" class="btn--primary">{{ section.settings.btn-text }}</a>
+    </div>
+  </div>
+  {% if section.blocks.size > 0 %}
+  <!-------------------- ROW 2 - SHOP COLLECTIONS -------------------->
+    <div class="c-section__shop-collections">
+      {% for block in section.blocks %}
+        {%- assign collection = collections[block.settings.collection] -%}
+        <div class="item-card">
+          <div class="item-card__image-container">
+            <a href="{{ collection.url }}">
+              <img src="{{ collection.image | img_url: '1364x1023', crop: 'center' }}" alt="{{ collection.image.alt }}">
+            </a>
+          </div>
+
+          <div class="item-card__info-container">
+            <h4 class="item-card__title">{{ collection.title }}</h4>
+            <p class="item-card__description">{{ block.settings.description }}</p>
+            <div class="item-card__btn-container">
+              <a href="{{ collection.url }}" class="btn--primary btn--small">{{ block.settings.btn-text }}</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
+
+
+
+
+{% schema %}
+    {
+      "name": "shop-section",
+      "tag": "section",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Section Details"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Section Name",
+          "default": "Shop Collections"
+        },
+        {
+          "type": "header",
+          "content": "Section Content"
+        },
+        {
+          "id": "subheading",
+          "type": "text",
+          "label": "Subheading Text"
+        },
+        {
+          "id": "heading",
+          "type": "text",
+          "label": "Heading Text"
+        },
+        {
+          "id": "btn-text",
+          "type": "text",
+          "label": "Button Text",
+          "default": "Learn More"
+        },
+        {
+          "id": "btn-link",
+          "type": "url",
+          "label": "Button Link"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "collection",
+          "name": "Collection Row",
+          "settings": [
+            {
+              "id": "collection",
+              "label": "Collection",
+              "type": "collection"
+            },
+            {
+              "id": "description",
+              "type": "text",
+              "label": "Collection Description"
+            },
+            {
+              "id": "btn-text",
+              "type": "text",
+              "label": "Button Text"
+            }
+          ]
+        }
+      ],
+      "presets": [
+        {
+          "category": "Custom - Gold Goat",
+          "name": "Custom - Shop Collections"
+        }
+      ]
+    }
+  {% endschema %}

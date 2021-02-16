@@ -1,0 +1,154 @@
+.a-section--section-1 {
+  
+  .a-section__row {
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+  }
+
+  .a-section__col {
+    width: 50%;
+
+    &--1 {
+
+      @include x-large {
+        width: 60%;
+      }
+
+      @include large {
+        width: 100%;
+      }
+    }
+
+    &--2 {
+
+      @include x-large {
+        width: 40%;
+      }
+
+      @include large {
+        width: 100%;
+      }
+    }
+  }
+
+  .a-section__subtitle {
+    margin: 0 auto 1em;
+    width: 100%;
+
+    @include large {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+  }
+
+  .a-section__title {
+    margin: 0;
+    width: 75%;
+
+    @include large {
+      margin-left: auto;
+      margin-right: auto;
+      width: 65%;
+      text-align: center;
+    }
+
+    @include medium {
+      width: 75%;
+    }
+
+    @include small {
+      width: 100%;
+    }
+  }
+
+  .a-section__primary-para {
+    margin: 1.875em 0 0;
+    width: 85%;
+
+    @include large {
+      margin-left: auto;
+      margin-right: auto;
+      width: 85%;
+      text-align: center;
+    }
+
+    @include medium {
+      width: 95%;
+    }
+
+    @include small {
+      width: 100%;
+    }
+
+    p + p {
+      margin-top: 1em;
+    }
+  }
+
+  .a-section__btn-container {
+
+    @include large {
+      text-align: center;
+    }
+  }
+
+  .a-section__hero-image {
+    margin: 0 auto;
+    width: 60%;
+
+    @include x-large {
+      width: 75%;
+    }
+
+    @include large {
+      width: 85%;
+    }
+
+    @include medium {
+      width: 100%;
+    }
+  }
+
+  .subscription-list {
+    margin: 1.875em 0 0;
+    width: 75%;
+    align-items: flex-start;
+
+    @include x-large {
+      width: 100%;
+    }
+
+    @include large {
+      flex-direction: column;
+      margin-left: auto;
+      margin-right: auto;
+      width: 75%;
+    }
+
+    @include medium {
+      width: 95%;
+    }
+
+    @include small {
+      width: 100%;
+    }
+
+    &__para {
+
+      @include large {
+        text-align: center;
+      }
+    }
+
+    &__icon {
+      margin-right: 1em;
+      width: 40px;
+
+      @include large {
+        margin: 0 auto 1em;
+        width: 40px;
+      }
+    }
+  }
+}

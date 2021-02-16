@@ -1,0 +1,55 @@
+<div class="a-section a-section--section-6">
+
+  <h3 class="subheading text-center a-section__subtitle">{{ section.settings.subheading }}</h3>
+  <h2 class="heading heading--s4 text-center a-section__title">{{ section.settings.heading }}</h2>
+  {% if section.settings.paragraph != blank %}
+    <p class="para text-center a-section__primary-para">{{ section.settings.paragraph }}</p>
+  {% endif %}
+
+  <div class="newsletter-signup">
+    <!-- NEWSLETTER -->
+    <form method="post" action="/contact#ContactFooter" id="ContactFooter" accept-charset="UTF-8" class="contact-form newsletter-signup__form" novalidate="novalidate">
+      <input type="hidden" name="form_type" value="customer" />
+      <input type="hidden" name="utf8" value="✓" />
+      <input type="hidden" name="contact[tags]" value="newsletter">
+      <div class="input-group newsletter-signup__input-group">
+        <input type="email" name="contact[email]" id="ContactFooter-email" class="input-group__field newsletter__input newsletter-signup__input-field" value="" placeholder="Email Address" aria-label="Email address" aria-required="true" required autocorrect="off"  autocapitalize="off">
+        <span class="input-group__btn newsletter-signup__submit">
+          <button type="submit" class="btn newsletter__submit btn--primary" name="commit" >
+            <span class="newsletter__submit-text--large">Subscribe</span>
+          </button>
+        </span>
+      </div>                 
+    </form>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "additional-section-6",
+  "tag": "section",
+  "settings": [
+    {
+      "id": "subheading",
+      "type": "text",
+      "label": "Subheading Text"
+    },
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Heading Text"
+    },
+    {
+      "id": "paragraph",
+      "type": "textarea",
+      "label": "Paragraph Text"
+    }
+  ],
+  "presets": [
+    {
+      "category": "Additional Sections - Gold Goat",
+      "name": "Additional Section - 6"
+    }
+  ]
+}
+{% endschema %}

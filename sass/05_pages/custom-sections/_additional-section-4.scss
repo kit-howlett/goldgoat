@@ -1,0 +1,72 @@
+.a-section--section-4 {
+  
+  .a-section__row {
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+  }
+
+  .a-section__primary-para {
+    margin: 0 auto;
+    width: 55%;
+
+    @include x-large {
+      width: 70%;
+    }
+
+    @include large {
+      width: 80%;
+    }
+
+    @include medium {
+      width: 100%;
+    }
+
+    p + p {
+      margin-top: 1em;
+    }
+
+    h1 {
+      margin-bottom: 1em;
+      font-weight: 700;
+      font-size: 1.25em;
+    }
+  }
+
+  .a-section__hero-image {
+    margin: 0 auto;
+    width: 60%;
+
+    @include x-large {
+      width: 75%;
+    }
+
+    @include large {
+      width: 85%;
+    }
+
+    @include medium {
+      width: 100%;
+    }
+  }
+
+  .story-board {
+
+    &__container {
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    &__image {
+      align-self: center;
+      width: 22.5%;
+      max-width: 250px;
+      border-radius: 4px;
+
+        @include medium {
+          width: 46%;
+          max-width: 300px;
+          margin: 2%;
+        }
+    }
+  }
+}

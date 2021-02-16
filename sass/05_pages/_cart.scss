@@ -1,0 +1,66 @@
+.cart {
+  font-family: $primary-font-family;
+  color: $primary-color;
+
+  th {
+    font-family: $primary-font-family;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: $primary-color;
+    text-transform: capitalize;
+  }
+
+  &__final-price {
+    font-weight: 600;
+  }
+
+  // &__product-title {
+  //   color: $primary-color;
+  // }
+
+  &__remove {
+    color: $primary-color;
+
+    .text-link--accent {
+      border: none;
+      color: inherit;
+    }
+  }
+}
+
+.cart-subtotal {
+
+  &__title,
+  &__price {
+    font-weight: 700;
+  }
+}
+
+.list-view-item {
+  
+  &__title {
+    color: $primary-color;
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+}
+
+.product-details__item--property {
+  display: none;
+}
+
+.cart-popup {
+
+  &__heading {
+    text-transform: capitalize;
+    letter-spacing: -.05em;
+  }
+
+  &__dismiss {
+    margin-top: 1rem;
+  }
+
+  &__dismiss-button {
+    border-bottom: none;
+  }
+}

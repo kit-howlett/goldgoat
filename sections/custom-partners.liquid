@@ -1,0 +1,88 @@
+<div class="c-section c-section--our-partners page-container">
+
+  <!-------------------- ROW 1 - MAIN CONTENT -------------------->
+  <div class="c-section__flex-row">
+    <!---------------- COLUMN 1 ---------------->
+    <div class="c-section__partners-content c-section__partners-content--col-1 ">
+      <!-- TEXT CONTENT -->
+      <h3 class="subheading">{{ section.settings.subheading }}</h3>
+      <h2 class="heading">{{ section.settings.heading }}</h2>
+      {% if section.settings.paragraph != blank %}
+        <div class="para">
+          {{ section.settings.paragraph }}
+        </div>
+      {% endif %}
+      <!-- CTA BUTTON -->
+      <div class="c-section__btn-container">
+        <a href="{{ section.settings.btn-link }}" class="btn--primary">{{ section.settings.btn-text }}</a>
+      </div>
+    </div>
+    <!---------------- COLUMN 2 ---------------->
+    <div class="c-section__partners-content c-section__partners-content--col-2">
+      <!-- IMAGE -->
+      <img src="{{ section.settings.main-image | img_url: '1200x1200', scale: '2', crop: 'center', format: 'pjpg' }}" class="c-section__main-image" alt="{{ section.settings.main-image.alt }}">
+      <img src="{{ section.settings.main-image | img_url: '1200x675', scale: '2', crop: 'center', format: 'pjpg' }}" class="c-section__main-image--mobile" alt="{{ section.settings.main-image.alt }}">
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "partners-section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Details"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Section Name",
+      "default": "Our Partners"
+    },
+    {
+      "type": "header",
+      "content": "Section Content"
+    },
+    {
+      "id": "subheading",
+      "type": "text",
+      "label": "Subheading Text"
+    },
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Heading Text"
+    },
+    {
+      "id": "paragraph",
+      "type": "richtext",
+      "label": "Paragraph Text"
+    },
+    {
+      "id": "btn-text",
+      "type": "text",
+      "label": "Button Text",
+      "default": "Learn More"
+    },
+    {
+      "id": "btn-link",
+      "type": "url",
+      "label": "Button Link"
+    },
+    {
+      "id": "main-image",
+      "type": "image_picker",
+      "label": "Main Image",
+      "info": "Aspect ratio of 2:1 recommended. Minimum width 1200px. "
+    }
+  ],
+  "presets": [
+  {
+    "category": "Custom - Gold Goat",
+    "name": "Custom - Our Partners"
+  }
+  ]
+}
+{% endschema %}

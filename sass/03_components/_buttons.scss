@@ -1,0 +1,79 @@
+.btn {
+  font-family: $button-font-family;
+  font-size: $button-font-size;
+  font-weight: $button-font-weight;
+  display: inline-block;
+  padding: .5625em 2.25em;
+  text-transform: none;
+  letter-spacing: $letter-spacing;
+  border-radius: 4px;
+  text-align: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  &--primary {
+    @extend .btn;
+    background: $btn-primary-color;
+    color: $btn-secondary-color;
+    border: 2px solid transparent;
+
+    &:hover,
+    &:not([disabled]):hover,
+    &:focus {
+      background: transparent;
+      color: $btn-primary-color;
+      border: 2px solid $btn-primary-color;
+    }
+  }
+
+  &--primary-rev {
+    @extend .btn;
+    background: $btn-secondary-color;
+    color: $btn-primary-color;
+    border: 2px solid transparent;
+
+    &:hover,
+    &:not([disabled]):hover,
+    &:focus {
+      background: transparent;
+      color: $btn-secondary-color;
+      border: 2px solid $btn-secondary-color;
+    }
+  }
+
+  &--secondary {
+    @extend .btn;
+    background: transparent;
+    color: $btn-primary-color;
+    border: 2px solid $btn-primary-color;
+
+    &:hover,
+    &:not([disabled]):hover,
+    &:focus {
+      background: $btn-primary-color;
+      color: $btn-secondary-color;
+      border: 2px solid transparent;
+    }
+  }
+
+  &--secondary-rev {
+    @extend .btn;
+    background: none;
+    color: $btn-secondary-color;
+    border: 2px solid $btn-secondary-color;
+
+    &:hover,
+    &:not([disabled]):hover,
+    &:focus {
+      background: $btn-secondary-color;
+      color: $btn-primary-color;
+      border: 2px solid transparent;
+    }
+  }
+
+  &--small {
+    min-width: 145px;
+    padding: 0.6875em 2.375em;
+  }
+}

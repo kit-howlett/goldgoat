@@ -1,0 +1,104 @@
+<div class="c-section c-section--testimonials page-container">
+  <!-- TEXT CONTENT -->
+  <h3 class="subheading">{{ section.settings.subheading }}</h3>
+  <h2 class="heading">{{ section.settings.heading }}</h2>
+  <!-- CTA BUTTON -->
+  <div class="c-section__btn-container">
+    <a href="{{ section.settings.btn-link }}" class="btn--primary">{{ section.settings.btn-text }}</a>
+  </div>
+  <!-- SUBSCRIPTION BENEFITS ICONS -->
+  {% if section.blocks.size > 0 %}
+    <!-------------------- ROW 1 - TESTIMONIAL SECTION  -------------------->
+    <div class="c-section__flex-row">
+      {% for block in section.blocks %}
+        <!-- TESTIMONIAL -->
+        <div class="testimonial">
+          <img src="{{ block.settings.profile-img | img_url: '75x75', scale: 2 }}" class="testimonial__img" alt="{{ section.settings.profile-img.alt }}">
+          <h6 class="testimonial__name">{{ block.settings.name }}</h6>
+          <p class="testimonial__location">{{ block.settings.location }}</p>
+          <p class="testimonial__quote">{{ block.settings.quote }}</p>
+        </div>
+      {% endfor %}  
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "testimonials-section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Details"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Section Name",
+      "default": "Testimonials"
+    },
+    {
+      "type": "header",
+      "content": "Section Content"
+    },
+    {
+      "id": "subheading",
+      "type": "text",
+      "label": "Subheading Text"
+    },
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Heading Text"
+    },
+    {
+      "id": "btn-text",
+      "type": "text",
+      "label": "Button Text",
+      "default": "Learn More"
+    },
+    {
+      "id": "btn-link",
+      "type": "url",
+      "label": "Button Link"
+    }
+  ],
+  "blocks": [
+  {
+    "type": "testimonial",
+    "name": "Testimonial",
+    "settings": [
+    {
+      "type": "image_picker",
+      "id": "profile-img",
+      "label": "Profile Image",
+      "info": "Aspect ratio of 1:1 recommended. Minimum width 150px. "
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "location",
+      "type": "text",
+      "label": "Location"
+    },
+    {
+      "id": "quote",
+      "type": "textarea",
+      "label": "Quote Text"
+    }
+    ]
+  }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "category": "Custom - Gold Goat",
+      "name": "Custom - Testimonials"
+    } 
+  ]
+}
+{% endschema %}

@@ -1,0 +1,41 @@
+.page-container {
+  max-width: $max-width;
+  width: 80%;
+  margin: 0 auto;
+
+  @include small {
+    width: 90%;
+  }
+
+  &--header {
+    max-width: $max-width-header;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.page-margin {
+  margin-top: 50px;
+}
+
+.flex {
+  display: flex;
+}
+
+.site-footer__title {
+  margin-bottom: .5em;
+}
+
+.newsletter-signup__input-box {
+  color: $primary-color;
+  text-align: left;
+  margin: 0;
+  flex: 4;
+  border: 2px solid $primary-color;
+  border-radius: 4px 0 0 4px;
+}
+
+// Override top margin on .collection-hero theme class
+.collection-hero {
+  margin-top: 0;
+}

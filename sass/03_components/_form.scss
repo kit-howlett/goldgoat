@@ -1,0 +1,100 @@
+// FORM GENERAL STYLING
+.form {
+  width: 100%;
+  margin: 0 auto;
+
+  form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 50%;
+
+    @include x-large {
+      width: 55%;
+    }
+
+    @include large {
+      width: 75%;
+    }
+
+    @include medium {
+      width: 85%;
+    }
+
+    @include small {
+      width: 100%;
+    }
+  }
+
+  &__input-group {
+    width: 100%;
+    margin-bottom: 12px;
+
+    &--no-margin {
+      margin-bottom: 0;
+    }
+  }
+
+  &__input {
+    margin: 0 auto;
+    width: 100%;
+    color: $primary-color;
+    text-align: left;
+    border: 2px solid $primary-color;
+    border-radius: 4px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  &__label,
+  &__footer,
+  &__para {
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  &__footer {
+    text-align: center;
+  }
+
+  .btn--primary {
+    line-height: 1.5;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+}
+
+// FORM SPECIFIC STYLING
+.form--register,
+.form--login,
+.form--recover {
+
+  .form__footer {
+    margin-top: 40px;
+    text-align: center;
+
+    a {
+
+      &:not([disabled]):hover {
+        color: $accent-color;
+        text-decoration: underline;
+      }
+    }
+
+    .btn--primary {
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+  }
+
+  .form__para {
+    text-align: center;
+    margin-bottom: 1.0625em;
+  }
+}
+
+

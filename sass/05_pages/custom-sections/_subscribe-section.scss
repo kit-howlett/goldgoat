@@ -1,0 +1,97 @@
+// Our Subscriptions Section
+.c-section--subscribe {
+
+  .heading,
+  .subheading,
+  .para,
+  .c-section__main-image,
+  .c-section__btn-container,
+  .c-section__flex-row,
+  .c-section__subscription-icon {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .heading,
+  .para,
+  .c-section__main-image {
+    width: 60%;
+
+    @include x-large {
+      width: 75%;
+    }
+
+    @include large {
+      width: 85%;
+    }
+
+    @include medium {
+      width: 100%;
+    }
+  }
+
+  .heading {
+    @include medium {
+      width: 90%;
+    }
+
+    @include small {
+      width: 100%;
+    }
+  }
+
+  .c-section__main-image {
+    margin-bottom: 3.75rem;
+  }
+
+  .c-section__btn-container {
+    margin-top: 2.5rem; 
+    margin-bottom: 3.75rem; 
+  }
+
+  .c-section__flex-row {
+    width: 90%;
+
+    @include large {
+      flex-wrap: wrap;
+    }
+
+    @include medium {
+      width: 100%;
+    }
+  }
+
+  .c-section__subscription-benefits {
+    width: 25%;
+
+    @include large {
+      width: 50%;
+
+      &:nth-child(3), 
+      &:nth-child(4) {
+        margin-top: 3.125rem;
+      }
+    }
+
+    @include small {
+      width: 100%;
+
+      &:nth-child(2) {
+        margin-top: 3.125rem;
+      }
+    }
+
+    .para--semi-bold {
+      margin-top: 25px;
+      width: 75%;
+    }
+  }
+
+  .c-section__subscription-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+

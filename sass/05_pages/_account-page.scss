@@ -1,0 +1,48 @@
+.myaccount {
+
+  &__account-details {
+
+    p + p {
+      margin-top: 1em;
+    }
+
+    @media (max-width: 989px) {
+      margin-top: 2rem;
+    }
+  }
+
+  &__order-heading + p {
+    margin: 1em 0;
+  }
+}
+
+.my-account {
+  
+  &__return-link,
+  &__logout-link  {
+    text-align: center;
+
+    a:not([disabled]):hover {
+      color: initial;
+      text-decoration: underline;
+    }
+
+    .fa-long-arrow-alt-right,
+    .fa-sign-out-alt {
+      padding-left: .5em;
+    }
+  }
+
+  &__title {
+    margin-bottom: 1em;
+  }
+
+  &__btn-container {
+    text-align: center;
+    margin-top: 30px;
+  }
+}
+
+.manage-subscription-page {
+  margin-top: 50px !important;
+}

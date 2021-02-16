@@ -1,0 +1,65 @@
+// Our Partners Section
+.c-section--our-partners {
+
+  .c-section__flex-row {
+
+    @include large {
+      flex-direction: column;
+    }
+  }
+
+  .c-section__partners-content {
+
+    &--col-1 {
+      width: 60%;
+
+      @include x-large {
+        width: 60%;
+      }
+
+      @include large {
+        width: 100%;
+      }
+    }
+
+    &--col-2 {
+      width: 40%;
+
+      @include x-large {
+        width: 40%;
+      }
+
+      @include large {
+        margin-top: 3.75em;
+        width: 100%;
+      }
+    }
+  }
+
+  .c-section__main-image {
+
+    @include large {
+      display: none;
+      border-radius: 4px;
+    }
+
+    &--mobile {
+      display: none;
+
+      @include large {
+        display: block;
+        width: 100%;
+        border-radius: 4px;
+      }
+    }
+  }
+
+  .heading,
+  .para {
+    width: 75%;
+
+    @include small {
+      width: 95%;
+    }
+  }
+}

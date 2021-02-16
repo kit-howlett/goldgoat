@@ -1,0 +1,88 @@
+<div class="c-section c-section--our-story page-container">
+
+  <!-------------------- ROW 1 - MAIN CONTENT -------------------->
+  <div class="c-section__flex-row c-section__flex-row--col-1">
+    <!---------------- COLUMN 1 ---------------->
+    <div class="c-section__story-content c-section__story-content--col-1">
+      <!-- HEADING CONTENT -->
+      <h3 class="subheading">{{ section.settings.subheading }}</h3>
+      <h2 class="heading">{{ section.settings.heading }}</h2>
+    </div>
+    <!---------------- COLUMN 2 ---------------->
+    <div class="c-section__story-content c-section__story-content--col-2 para">
+      {{ section.settings.paragraph }}
+    </div>
+  </div>
+
+  <!-------------------- ROW 2 - IMAGES -------------------->
+  {% if section.blocks.size > 0 %}
+    <div class="c-section__flex-row c-section__flex-row--col-2">
+      {% for block in section.blocks %}
+        <img src="{{ block.settings.storyboard-image | img_url: '300x300', crop: 'center', scale: '2'}}" alt="{{ block.settings.storyboard-image.alt }}" class="c-section__story-board">
+      {% endfor %}  
+    </div>
+  {% endif %}
+
+</div>
+
+
+
+
+{% schema %}
+{
+  "name": "ourstory-section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Details"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Section Name",
+      "default": "Our Story"
+    },
+    {
+      "type": "header",
+      "content": "Section Content"
+    },
+    {
+      "id": "subheading",
+      "type": "text",
+      "label": "Subheading Text"
+    },
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Heading Text"
+    },
+    {
+      "id": "paragraph",
+      "type": "richtext",
+      "label": "Paragraph Text"
+    }
+  ],
+  "blocks": [
+  {
+    "type": "storyboard",
+    "name": "Image",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "storyboard-image",
+        "label": "Story Board Image",
+        "info": "Aspect ratio of 1:1 recommended. Minimum width 600px. "
+      }
+    ]
+  }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "category": "Custom - Gold Goat",
+      "name": "Custom - Our Story"
+    }
+  ]
+}
+{% endschema %}

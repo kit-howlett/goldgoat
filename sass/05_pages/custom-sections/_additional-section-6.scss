@@ -1,0 +1,94 @@
+.a-section--section-6 {
+
+  .a-section__subtitle {
+    margin: 0 auto 1em;
+    width: 100%;
+  }
+
+  .a-section__title {
+    margin: 0 auto;
+    width: 45%;
+
+    @include x-large {
+      width: 55%;
+    }
+
+    @include large {
+      width: 65%;
+    }
+
+    @include medium {
+      width: 75%;
+    }
+
+    @include small {
+      width: 100%;
+    }
+  }
+
+  .a-section__primary-para {
+    margin: 1.875em auto 0;
+    width: 65%;
+    
+    @include x-large {
+      width: 75%;
+    }
+
+    @include large {
+      width: 85%;
+    }
+
+    @include medium {
+      width: 95%;
+    }
+
+    @include small {
+      width: 100%;
+    }
+  }
+
+  .newsletter-signup {
+    margin: 40px auto 0;
+    width: 45%;
+
+    @include x-large {
+      width: 65%;
+    }
+
+    @include large {
+      width: 75%;
+    }
+
+    @include medium {
+      width: 85%;
+    }
+
+    @include small {
+      width: 100%;
+    }
+
+    &__input-field {
+     
+      &[type="email"] {
+        color: $primary-color;
+        text-align: left;
+        margin: 0;
+        flex: 4;
+        border: 2px solid $primary-color;
+        border-radius: 4px 0 0 4px;
+      } 
+    }
+
+    &__submit {
+      flex: 1;
+
+      .btn--primary {
+        border-radius: 0 4px 4px 0;
+
+        &:hover {
+          border-left: transparent;
+        }
+      }
+    }
+  }
+}

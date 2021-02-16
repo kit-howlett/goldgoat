@@ -1,0 +1,183 @@
+.a-section--section-10 {
+  
+  .a-section__row {
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 60px;
+
+    &--1 {
+      
+      .a-section__col--1,
+      .a-section__col--2 {
+        width: 50%;
+
+        @include large {
+          width: 100%;
+        }
+      }
+
+      .a-section__col--2 {
+
+        @include large {
+          margin-top: 40px;
+        }
+      }
+    }
+
+    &--2 {
+      justify-content: space-between;
+      align-items: center;
+
+      @include large {
+        flex-direction: column;
+      }
+
+      .a-section__col--1 {
+        width: 48%;
+
+        @include large {
+          width: 100%;
+          order: 1;
+        }
+      }
+
+      .a-section__col--2 {
+        width: 48%;
+
+        @include large {
+          margin-bottom: 60px;
+          width: 100%;
+          order: 0;
+        }
+      }
+    }
+  }
+
+  .a-section__subtitle {
+    margin: 0 auto 1em;
+    width: 100%;
+
+    @include large {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+  }
+
+  .a-section__title {
+    margin: 0;
+    width: 65%;
+
+    @include x-large {
+      width: 85%;
+    }
+
+    @include large {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      width: 65%;
+    }
+
+    @include medium {
+      width: 75%;
+    }
+
+    @include small {
+      width: 95%;
+    }
+  }
+
+  .a-section__primary-para {
+    margin: 1.875em 0 0;
+    width: 75%;
+
+    p + p {
+      margin-top: 1em;
+    }
+
+    @include large {
+      margin: 1.875em auto 0; 
+      text-align: center;
+    }
+
+    @include medium {
+      width: 85%;
+    }
+  }
+
+  .a-section__hero-image {
+    margin: 0 auto;
+    border-radius: 4px;
+  }
+
+  .blend {
+
+    &__subtitle {
+      margin: 0 auto 1em;
+
+      @include large {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+    }
+
+    &__title {
+      margin: 0;
+
+      @include large {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+    }
+
+    &__description {
+      margin: 1.875em 0 0;
+
+      @include large {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+
+      @include medium {
+        width: 90%;
+      }
+
+      @include small {
+        width: 100%;
+      }
+    }
+
+    &__btn--container {
+      margin-top: 1.875em;
+
+      @include large {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+    }
+
+    &__images-container {
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    &__image {
+      width: 45%;
+      border-radius: 4px;
+
+      @include x-large {
+        width: 48%;
+      }
+
+      @include large {
+        width: 42%;
+      }
+    }
+  }
+}

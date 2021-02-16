@@ -1,0 +1,88 @@
+// Our Newsletter Section
+.c-section--newsletter {
+  margin-top: 125px;
+  margin-bottom: 125px;
+  
+  .subheading,
+  .heading,
+  .para {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .subheading {
+    width: 100%;
+  }
+
+  .heading {
+    width: 70%;
+
+    @include x-large {
+      width: 80%;
+    }
+
+    @include large {
+      width: 90%;
+    }
+
+    @include medium {
+      width: 95%;
+    }
+
+    @include small {
+      width: 100%;
+    }
+  }
+
+  .c-section__section-icon {
+    width: 50px;
+    margin: 0 auto 40px;    
+  }
+
+  // NEWSLETTER FORM
+  .newsletter-signup {
+    margin: 40px auto 0;
+    width: 45%;
+
+    @include x-large {
+      width: 65%;
+    }
+
+    @include large {
+      width: 75%;
+    }
+
+    @include medium {
+      width: 85%;
+    }
+
+    @include small {
+      width: 100%;
+    }
+
+    &__input-field {
+     
+      &[type="email"] {
+        color: $primary-color;
+        text-align: left;
+        margin: 0;
+        flex: 4;
+        border: 2px solid $primary-color;
+        border-radius: 4px 0 0 4px;
+      } 
+    }
+
+    &__submit {
+      flex: 1;
+
+      .btn--primary {
+        border-radius: 0 4px 4px 0;
+
+        &:hover {
+          border-left: transparent;
+        }
+      }
+    }
+  }
+}

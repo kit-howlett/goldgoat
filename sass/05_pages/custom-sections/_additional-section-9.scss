@@ -1,0 +1,172 @@
+.a-section--section-9 {
+  
+  .a-section__row {
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 60px;
+  }
+
+  .a-section__col {
+    width: 100%;
+  }
+
+  .a-section__subtitle {
+    margin: 0 auto 1em;
+    width: 100%;
+  }
+
+  .a-section__title {
+    margin: 0 auto;
+    width: 45%;
+
+    @include x-large {
+      width: 55%;
+    }
+
+    @include large {
+      width: 65%;
+    }
+
+    @include medium {
+      width: 75%;
+    }
+
+    @include small {
+      width: 100%;
+    }
+  }
+
+  .a-section__primary-para {
+    margin: 1.875em auto 0;
+    width: 65%;
+    
+    @include x-large {
+      width: 75%;
+    }
+
+    @include large {
+      width: 85%;
+    }
+
+    @include medium {
+      width: 95%;
+    }
+
+    @include small {
+      width: 100%;
+    }
+  }
+
+  .contact-form {
+    margin: 40px auto 0;
+    width: 55%;
+
+    @include x-large {
+      width: 65%;
+    }
+
+    @include large {
+      width: 75%;
+    }
+
+    @include medium {
+      width: 85%;
+    }
+
+    @include small {
+      width: 100%;
+    }
+
+    form {
+      width: 100%;
+    }
+  }
+
+  .partner {
+    margin-top: 40px;
+
+    &__container {
+      position: relative;
+      margin-bottom: 20px;
+      padding: 1.75em;
+      width: 100%;
+      border-radius: 4px;
+      box-shadow: 0px 3px 20px rgba(0,0,0,0.15);
+
+      @include large {
+        flex-direction: column;
+      }
+    }
+
+    &__col {
+
+      &--1 {
+        flex-direction: column;
+        width: 60%;
+
+        @include large {
+          width: 100%;
+        }
+      }
+
+      &--2 {
+        width: 40%;
+
+        @include large {
+          margin-top: 50px;
+          width: 100%;
+        }
+      }
+    }
+
+    &__shop-type {
+      margin-bottom: .5em;
+    }
+
+    &__shop-name {
+      margin-bottom: .5em;
+    }
+
+    &__shop-description {
+      margin-bottom: 1em;
+      width: 65%;
+
+      @include medium {
+        width: 85%;
+      }
+
+      @include small {
+        width: 95%;
+      }
+
+      p + p {
+        margin-top: 1em;
+      }
+    }
+
+    &__shop-contact {
+      margin-top: auto;
+      width: 45%;
+
+      @include x-large {
+        width: 55%;
+      }
+
+      @include medium {
+        width: 65%;
+      }
+
+      .fas {
+        padding-right: 1em;
+      }
+    }
+
+    .partner__shop-contact + .partner__shop-contact {
+      margin-top: .25em;
+
+      @include large {
+        margin-top: .5em;
+      }
+    }
+  }
+}

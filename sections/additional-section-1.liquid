@@ -1,0 +1,90 @@
+<div class="a-section a-section--section-1">
+
+  <div class="flex a-section__row">
+    <div class="a-section__col a-section__col--1">
+       
+      <h3 class="subheading a-section__subtitle">{{ section.settings.subheading }}</h3>
+      <h2 class="heading heading--s4 a-section__title">{{ section.settings.heading }}</h2>
+      {% if section.settings.paragraph != blank %}
+        <div class="para a-section__primary-para">
+          {{ section.settings.paragraph }}
+        </div>
+      {% endif %}
+      <div class="a-section__btn-container">
+        <a href="{{ section.settings.btn-link }}" class="btn--primary">{{ section.settings.btn-text }}</a>
+      </div>
+    </div>
+    <div class="a-section__col a-section__col--2">
+      {% if section.blocks.size > 0 %}
+        {% for block in section.blocks %}
+          <div class="flex subscription-list">
+            <img src="{{ block.settings.icon | img_url: '80x80'}}" class="subscription-list__icon" alt="{{ section.settings.icon.alt }}">
+            <p class="para subscription-list__para">{{ block.settings.para }}</p>
+          </div>
+        {% endfor %}  
+      {% endif %}
+    </div>
+  </div>
+  
+</div>
+
+{% schema %}
+{
+  "name": "additional-section-1",
+  "tag": "section",
+  "settings": [
+    {
+      "id": "subheading",
+      "type": "text",
+      "label": "Column 1 - Subheading Text"
+    },
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Column 1 - Heading Text"
+    },
+    {
+      "id": "paragraph",
+      "type": "richtext",
+      "label": "Paragraph Text"
+    },
+    {
+      "id": "btn-text",
+      "type": "text",
+      "label": "Button Text",
+      "default": "Learn More"
+    },
+    {
+      "id": "btn-link",
+      "type": "url",
+      "label": "Button Link"
+    }
+  ],
+  "blocks": [
+  {
+    "type": "block",
+    "name": "Block",
+    "settings": [
+      {
+        "id": "icon",
+        "type": "image_picker",
+        "label": "Block Icon",
+        "info": "Aspect ratio of 1:1 recommended. Minimum width 80px."
+      },
+      {
+        "id": "para",
+        "type": "textarea",
+        "label": "Block Text"
+      }
+    ]
+  }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "category": "Additional Sections - Gold Goat",
+      "name": "Additional Section - 1"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,83 @@
+<div class="page-container page-margin c-page--register">
+  <!--------- Registration FORM  --------->
+
+  <!-- FORM Heading  -->
+  <h1 class="heading heading--s2 text-center c-page__heading">{{ 'customer.register.title' | t }}</h1>
+
+  <div class="form form--register">
+    {%- assign formId = 'RegisterForm' -%}
+    <!-- FORM Start  -->
+    {% form 'create_customer', id: formId, novalidate: 'novalidate' %}
+      {% include 'form-status', form: form, form_id: formId %}
+
+      <!-- FORM Input Group  -->
+      <div class="form__input-group">
+        <label for="{{ formId }}-FirstName" class="form__label para--semi-bold">{{ 'customer.register.first_name' | t }}</label>
+        <input type="text" name="customer[first_name]" id="{{ formId }}-FirstName" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} autocomplete="given-name" class="form__input">
+      </div>
+
+      <!-- FORM Input Group  -->
+      <div class="form__input-group">
+        <label for="{{ formId }}-LastName" class="form__label para--semi-bold">{{ 'customer.register.last_name' | t }}</label>
+        <input type="text" name="customer[last_name]" id="{{ formId }}-LastName" {% if form.last_name %}value="{{ form.last_name }}"{% endif %} autocomplete="family-name" class="form__input">
+      </div>
+
+      <!-- FORM Input Group  -->
+      <div class="form__input-group">
+        <label for="{{ formId }}-email" class="form__label para--semi-bold">{{ 'customer.register.email' | t }}</label>
+        <input
+          type="email"
+          name="customer[email]"
+          id="{{ formId }}-email"
+          class="form__input {% if form.errors contains 'email' %} input--error{% endif %}"
+          {% if form.email %} value="{{ form.email }}"{% endif %}
+          autocorrect="off"
+          autocapitalize="off"
+          autocomplete="email"
+          aria-required="true"
+          {%- if form.errors contains 'email' -%}
+            class="input--error"
+            aria-invalid="true"
+            aria-describedby="{{ formId }}-email-error"
+          {%- endif -%}>
+        {%- if form.errors contains 'email' -%}
+          <span id="{{ formId }}-email-error" class="input-error-message ">
+            <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+            {% include 'icon-error' %}
+            <span>{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
+          </span>
+        {%- endif -%}
+      </div>
+
+      <!-- FORM Input Group  -->
+      <div class="form__input-group form__input-group--no-margin">
+      <label for="{{ formId }}-password" class="form__label para--semi-bold">{{ 'customer.register.password' | t }}</label>
+      <input
+        type="password"
+        name="customer[password]"
+        id="{{ formId }}-password"
+        class="form__input {% if form.errors contains 'password' %} input--error{% endif %}"
+        aria-required="true"
+        {%- if form.errors contains 'password' -%}
+          class="input--error"
+          aria-invalid="true"
+          aria-describedby="{{ formId }}-password-error"
+        {%- endif -%}>
+      {%- if form.errors contains 'password' -%}
+        <span id="{{ formId}}-password-error" class="input-error-message form__input-error">
+          {% include 'icon-error' %}
+          <span>{{ form.errors.translated_fields['password'] | capitalize }} {{ form.errors.messages['password'] }}.</span>
+        </span>
+      {%- endif -%}
+      </div>
+
+      <!-- FORM Submit & Links -->
+      <div class="form__footer">
+        <input type="submit" value="{{ 'customer.register.submit' | t }}" class="btn--primary">
+        <p class="para">Already have an account? Log in <a href="{{ routes.account_login_url }}" class="para--semi-bold para--accent-color">here.</span></a>
+      </div>
+
+    {% endform %}
+    <!-- FORM End  -->
+  </div>
+</div>

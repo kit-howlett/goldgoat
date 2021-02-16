@@ -1,0 +1,123 @@
+<div class="a-section a-section--section-7">
+
+  <div class="flex a-section__row">
+    <!-- Column 1 -->
+    <div class="a-section__col a-section__col--1">
+      <h3 class="subheading a-section__subtitle">{{ section.settings.subheading }}</h3>
+      <h2 class="heading heading--s4 a-section__title">{{ section.settings.heading }}</h2>
+     
+      <div class="a-section__info-container">
+        <ul class="contact-info">
+          <li class=""><i class="fas fa-paper-plane"></i></i><a href="mailto:{{ shop.email }}">{{ shop.email }}</a></li>
+          <li class=""><i class="fas fa-phone-alt"></i><a href="tel:{{ shop.phone }}">{{ shop.phone }}</a></li>
+          <li class="flex">
+            <div>
+              <i class="fas fa-map-marked-alt"></i>
+            </div>
+            <div>
+              <p class="para">{{ shop.address.street }},<br>{{ shop.address.city }}, {{ shop.address.country }}.<br>{{ shop.address.zip }}</p>
+            </div>
+        </ul>
+        <div class="extra-info">
+          <p class="para--semi-bold extra-info__para">{{ section.settings.info-paragraph }}</p>
+          <ul>
+            {% for link in linklists[section.settings.menu].links %}
+              <li><i class="fas fa-arrow-right"></i><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Column 2 -->
+    <div class="a-section__col a-section__col--2">
+      <div class="form contact-form">
+        {%- assign formId = 'ContactForm' -%}
+        {% form 'contact', id: formId %}
+          {% include 'form-status', form: form, form_id: formId %}
+    
+          <div class="form__input-group">
+            <label for="{{ formId }}-name">{{ 'contact.form.name' | t }}</label>
+            <input type="text" id="{{ formId }}-name" class="form__input" name="contact[{{ 'contact.form.name' | t }}]" value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+          </div>
+    
+          <div class="form__input-group">
+            <label for="{{ formId }}-email">{{ 'contact.form.email' | t }} <span aria-hidden="true">*</span></label>
+            <input
+              type="email"
+              id="{{ formId }}-email"
+              class="form__input"
+              name="contact[email]"
+              autocorrect="off"
+              autocapitalize="off"
+              value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+              aria-required="true"
+              {%- if form.errors contains 'email' -%}
+                class="input--error"
+                aria-invalid="true"
+                aria-describedby="{{ formId }}-email-error"
+              {%- endif -%}
+              >
+            {%- if form.errors contains 'email' -%}
+              <span id="{{ formId}}-email-error" class="input-error-message">
+                <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+                {% include 'icon-error' %}
+                <span>{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
+              </span>
+            {%- endif -%}
+          </div>
+          
+          <div class="form__input-group">
+            <label for="{{ formId }}-phone">{{ 'contact.form.phone' | t }}</label>
+            <input type="tel" id="{{ formId }}-phone" class="form__input" name="contact[{{ 'contact.form.phone' | t }}]" pattern="[0-9\-]*" value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}">
+          </div>
+    
+          <div class="form__input-group">
+            <label for="{{ formId }}-message">{{ 'contact.form.message' | t }}</label>
+            <textarea rows="10" id="{{ formId }}-message" class="form__input" name="contact[{{ 'contact.form.message' | t }}]">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+          </div>
+    
+          <input type="submit" class="btn--primary" value="{{ 'contact.form.submit' | t }}">
+    
+        {% endform %}
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+{% schema %}
+{
+  "name": "additional-section-7",
+  "tag": "section",
+  "settings": [
+    {
+      "id": "subheading",
+      "type": "text",
+      "label": "Subheading Text"
+    },
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Heading Text"
+    },
+    {
+      "id": "info-paragraph",
+      "type": "textarea",
+      "label": "Menu Header",
+      "default": "For further information please visit:"
+    },
+    {
+      "id": "menu",
+      "type": "link_list",
+      "label": "Menu"
+    }
+  ],
+  "presets": [
+    {
+      "category": "Additional Sections - Gold Goat",
+      "name": "Additional Section - 7"
+    }
+  ]
+}
+{% endschema %}
